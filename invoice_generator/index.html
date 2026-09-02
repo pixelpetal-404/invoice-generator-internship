@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Invoice — Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+
+  <div data-masthead></div>
+
+  <main class="tab-well">
+    <div class="page-pad">
+
+      <h1>Draft a new invoice</h1>
+      <p class="subtext">Fill in the details below — totals update as you type. Saving takes you straight to a printable preview.</p>
+
+      <form id="invoice-form">
+
+        <div class="section-label">From &amp; Bill To</div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="fromName">Your business name</label>
+            <input id="fromName" placeholder="Studio Aether Design Co." required />
+          </div>
+          <div class="field">
+            <label for="clientName">Client name</label>
+            <input id="clientName" placeholder="Marigold Interiors LLC" required />
+          </div>
+          <div class="field">
+            <label for="fromAddress">Your address / email</label>
+            <input id="fromAddress" placeholder="12 Harbour Lane, Kolkata · hello@aether.co" />
+          </div>
+          <div class="field">
+            <label for="clientAddress">Client address / email</label>
+            <input id="clientAddress" placeholder="44 Rosewood Ave · accounts@marigold.com" />
+          </div>
+        </div>
+
+        <div class="section-label">Invoice details</div>
+        <div class="field-grid thirds">
+          <div class="field">
+            <label for="invoiceNumber">Invoice number</label>
+            <input id="invoiceNumber" class="mono-field" />
+          </div>
+          <div class="field">
+            <label for="issueDate">Issue date</label>
+            <input id="issueDate" type="date" />
+          </div>
+          <div class="field">
+            <label for="dueDate">Due date</label>
+            <input id="dueDate" type="date" />
+          </div>
+        </div>
+
+        <div class="section-label">Line items</div>
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th style="width:46%">Description</th>
+              <th class="num" style="width:12%">Qty</th>
+              <th class="num" style="width:18%">Rate</th>
+              <th class="num" style="width:18%">Amount</th>
+              <th style="width:6%"></th>
+            </tr>
+          </thead>
+          <tbody id="items-body"></tbody>
+        </table>
+        <button type="button" class="add-row-btn" id="add-row">+ Add line item</button>
+
+        <div class="section-label">Adjustments</div>
+        <div class="totals-block" style="margin-bottom:0;">
+          <div class="totals-row">
+            <span>Subtotal</span>
+            <span class="val" id="sum-subtotal">0.00</span>
+          </div>
+          <div class="totals-row">
+            <span>Discount (%)</span>
+            <input type="number" id="discountPct" value="0" min="0" step="0.5" />
+          </div>
+          <div class="totals-row">
+            <span>Tax (%)</span>
+            <input type="number" id="taxPct" value="0" min="0" step="0.5" />
+          </div>
+          <div class="totals-row grand">
+            <span>Total due</span>
+            <span class="val" id="sum-total">0.00</span>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:30px;">Notes &amp; terms</div>
+        <div class="field span-2" style="margin-bottom:30px;">
+          <textarea id="notes" placeholder="Payment due within 14 days. Thank you for your business.">Payment due within 14 days of receipt. Thank you for your business.</textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-ghost" id="reset-btn">Clear form</button>
+          <button type="submit" class="btn btn-primary">Save &amp; preview →</button>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">LEDGER · A STATIC INVOICE BOOK · YOUR DATA STAYS IN THIS BROWSER</footer>
+</div>
+
+<script src="app.js"></script>
+<script src="invoice-form.js"></script>
+</body>
+</html>

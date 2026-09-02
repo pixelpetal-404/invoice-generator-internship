@@ -53,12 +53,4 @@ so the project does not require a traditional backend or database.
 
 ### Architecture
 
-User
-  ↓
-Web Browser
-  ↓
-Amazon S3
-  ↓
-HTML / CSS / JavaScript
-  ↓
-Browser localStorage
+User -> Web Browser -> Amazon S3 -> HTML / CSS / JavaScript -> Browser localStorage
